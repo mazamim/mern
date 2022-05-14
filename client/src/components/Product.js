@@ -1,35 +1,35 @@
-import React from 'react'
-import {Card} from 'react-bootstrap'
+import React, { useEffect } from "react";
+import { Card } from "react-bootstrap";
 //compo
-import Rating from './Rating'
-const Product = ({product}) => {
-  return (
-   <>
-   <Card className='my-3 p-3 rounded'>
-      <a href={`/product/${product._id}`}>
-        <Card.Img src={product.image} variant='top' />
-      </a>
+import Rating from "./Rating";
 
-      <Card.Body>
+const Product = ({ product }) => {
+  return (
+    <>
+      <Card className="my-3 p-3 rounded">
         <a href={`/product/${product._id}`}>
-          <Card.Title as='div'>
-            <strong>{product.name}</strong>
-          </Card.Title>
+          <Card.Img src={product.image} variant="top" />
         </a>
 
-        <Card.Text as='div'>
-          <Rating
-            value={product.rating}
-            text={`${product.numReviews} reviews`}
-          />
-        </Card.Text>
+        <Card.Body>
+          <a href={`/product/${product._id}`}>
+            <Card.Title as="div">
+              <strong>{product.name}</strong>
+            </Card.Title>
+          </a>
 
-        <Card.Text as='h3'>${product.price}</Card.Text>
-      </Card.Body>
-    </Card>
-   
-   </>
-  )
-}
+          <Card.Text as="div">
+            <Rating
+              value={product.rating}
+              text={`${product.numReviews} reviews`}
+            />
+          </Card.Text>
 
-export default Product
+          <Card.Text as="h3">${product.price}</Card.Text>
+        </Card.Body>
+      </Card>
+    </>
+  );
+};
+
+export default Product;
